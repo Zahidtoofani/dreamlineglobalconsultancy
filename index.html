@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>EliteRecruitment UAE — Connecting Talent with Opportunity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#C9A84C;
+  --gold-light:#E8C97A;
+  --gold-pale:#F5EDD6;
+  --navy:#0A1628;
+  --navy-mid:#112040;
+  --navy-light:#1A3060;
+  --white:#FFFFFF;
+  --off-white:#F8F7F4;
+  --gray:#6B7280;
+  --gray-light:#E5E7EB;
+  --text:#1F2937;
+  --ff-head:'Playfair Display',serif;
+  --ff-body:'DM Sans',sans-serif;
+  --shadow:0 4px 24px rgba(10,22,40,0.10);
+  --shadow-lg:0 12px 48px rgba(10,22,40,0.18);
+  --radius:12px;
+  --transition:0.3s ease;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--ff-body);color:var(--text);background:var(--white);overflow-x:hidden;}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--navy);}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+
+/* ── NAVBAR ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,22,40,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.2);transition:var(--transition);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-icon{width:36px;height:36px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.logo-icon i{color:var(--navy);font-size:16px;}
+.logo-text{display:flex;flex-direction:column;line-height:1.1;}
+.logo-text span:first-child{font-family:var(--ff-head);font-size:18px;font-weight:700;color:var(--white);}
+.logo-text span:last-child{font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.3px;transition:var(--transition);position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:var(--transition);}
+.nav-links a:hover{color:var(--gold);}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:10px 22px;border-radius:6px;font-weight:600!important;}
+.nav-cta:hover{background:var(--gold-light)!important;}
+.nav-cta::after{display:none!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
+.hamburger span{width:24px;height:2px;background:var(--white);transition:var(--transition);display:block;}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:var(--navy);z-index:999;padding:24px;border-top:1px solid rgba(201,168,76,0.2);}
+.mobile-menu.open{display:block;}
+.mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:0;}
+.mobile-menu ul li a{display:block;padding:14px 0;color:rgba(255,255,255,0.85);text-decoration:none;font-size:16px;border-bottom:1px solid rgba(255,255,255,0.06);}
+
+/* ── HERO ── */
+#home{min-height:100vh;background:var(--navy);position:relative;display:flex;align-items:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 50%,#0D1F3C 100%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:60px 60px;}
+.hero-glow{position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,0.12) 0%,transparent 70%);pointer-events:none;}
+.hero-glow2{position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(26,48,96,0.6) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{max-width:1280px;margin:0 auto;padding:120px 24px 80px;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:8px 16px;border-radius:100px;font-size:13px;font-weight:500;margin-bottom:28px;letter-spacing:0.5px;}
+.hero-badge i{font-size:11px;}
+.hero-title{font-family:var(--ff-head);font-size:clamp(38px,5vw,62px);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:24px;}
+.hero-title em{color:var(--gold);font-style:normal;display:block;}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:40px;font-weight:300;}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-primary{background:var(--gold);color:var(--navy);padding:15px 32px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:var(--transition);border:2px solid var(--gold);}
+.btn-primary:hover{background:var(--gold-light);border-color:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,0.3);}
+.btn-outline{background:transparent;color:var(--white);padding:15px 32px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:var(--transition);border:2px solid rgba(255,255,255,0.25);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+.stat{text-align:center;padding:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;}
+.stat-num{font-family:var(--ff-head);font-size:32px;font-weight:700;color:var(--gold);}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;letter-spacing:0.5px;text-transform:uppercase;}
+.hero-visual{display:flex;flex-direction:column;gap:16px;}
+.hero-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:20px;backdrop-filter:blur(8px);animation:floatCard 4s ease-in-out infinite;}
+.hero-card:nth-child(2){animation-delay:1.5s;margin-left:24px;}
+.hero-card:nth-child(3){animation-delay:0.8s;}
+@keyframes floatCard{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.hc-top{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.hc-icon{width:40px;height:40px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.hc-icon i{color:var(--navy);font-size:16px;}
+.hc-title{color:var(--white);font-weight:600;font-size:14px;}
+.hc-sub{color:rgba(255,255,255,0.5);font-size:12px;}
+.hc-tag{display:inline-block;background:rgba(201,168,76,0.15);color:var(--gold);padding:4px 10px;border-radius:100px;font-size:11px;font-weight:500;}
+
+/* ── SECTIONS ── */
+section{padding:96px 24px;}
+.section-inner{max-width:1280px;margin:0 auto;}
+.section-label{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;}
+.section-label::before{content:'';width:24px;height:2px;background:var(--gold);}
+.section-title{font-family:var(--ff-head);font-size:clamp(28px,4vw,42px);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:16px;}
+.section-sub{font-size:16px;color:var(--gray);line-height:1.7;max-width:560px;}
+.section-head{margin-bottom:56px;}
+
+/* ── ABOUT ── */
+#about{background:var(--off-white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.about-img-wrap{position:relative;}
+.about-img-bg{width:100%;height:420px;background:var(--navy);border-radius:16px;position:relative;overflow:hidden;}
+.about-img-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--navy-light),var(--navy));}
+.about-img-bg i{position:absolute;bottom:32px;right:32px;font-size:80px;color:rgba(201,168,76,0.15);}
+.about-accent{position:absolute;bottom:-20px;left:-20px;width:160px;height:160px;background:var(--gold);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);}
+.about-accent span:first-child{font-family:var(--ff-head);font-size:40px;font-weight:700;color:var(--navy);}
+.about-accent span:last-child{font-size:12px;color:var(--navy);font-weight:600;text-align:center;padding:0 12px;}
+.about-content .section-sub{max-width:100%;}
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+.mv-card{background:var(--white);border-radius:10px;padding:20px;border-left:3px solid var(--gold);}
+.mv-card h4{font-family:var(--ff-head);font-size:16px;color:var(--navy);margin-bottom:8px;}
+.mv-card p{font-size:14px;color:var(--gray);line-height:1.6;}
+.why-list{display:flex;flex-direction:column;gap:12px;}
+.why-item{display:flex;align-items:flex-start;gap:12px;padding:14px;background:var(--white);border-radius:8px;}
+.why-item i{color:var(--gold);font-size:16px;margin-top:2px;flex-shrink:0;}
+.why-item span{font-size:14px;color:var(--text);line-height:1.5;}
+
+/* ── SERVICES ── */
+#services{background:var(--white);}
+.services-tabs{display:flex;gap:12px;margin-bottom:40px;}
+.s-tab{padding:10px 24px;border-radius:100px;font-size:14px;font-weight:600;cursor:pointer;border:2px solid var(--gray-light);background:transparent;color:var(--gray);transition:var(--transition);}
+.s-tab.active{background:var(--navy);color:var(--white);border-color:var(--navy);}
+.s-tab:hover:not(.active){border-color:var(--navy);color:var(--navy);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.svc-card{background:var(--off-white);border-radius:var(--radius);padding:32px;border:1px solid var(--gray-light);transition:var(--transition);cursor:default;position:relative;overflow:hidden;}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:var(--transition);}
+.svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);background:var(--white);}
+.svc-card:hover::before{transform:scaleX(1);}
+.svc-icon{width:52px;height:52px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.svc-icon i{color:var(--gold);font-size:20px;}
+.svc-card h3{font-family:var(--ff-head);font-size:18px;color:var(--navy);margin-bottom:10px;}
+.svc-card p{font-size:14px;color:var(--gray);line-height:1.7;}
+
+/* ── JOBS ── */
+#jobs{background:var(--navy);padding:96px 24px;}
+#jobs .section-title{color:var(--white);}
+#jobs .section-sub{color:rgba(255,255,255,0.55);}
+#jobs .section-label{color:var(--gold);}
+.jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;}
+.job-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:24px;transition:var(--transition);}
+.job-card:hover{background:rgba(255,255,255,0.08);border-color:rgba(201,168,76,0.4);transform:translateY(-4px);}
+.job-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;}
+.job-title{font-family:var(--ff-head);font-size:18px;color:var(--white);font-weight:600;}
+.job-badge{background:rgba(201,168,76,0.15);color:var(--gold);padding:4px 12px;border-radius:100px;font-size:12px;font-weight:600;white-space:nowrap;}
+.job-meta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;}
+.job-meta span{display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.55);}
+.job-meta i{font-size:12px;color:var(--gold);}
+.job-desc{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:20px;}
+.job-apply{display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:var(--navy);padding:10px 20px;border-radius:6px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:var(--transition);}
+.job-apply:hover{background:var(--gold-light);transform:translateX(2px);}
+
+/* ── FORMS ── */
+#apply,#hire{background:var(--off-white);}
+#hire{background:var(--white);}
+.forms-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.form-wrap{background:var(--white);border-radius:16px;padding:40px;box-shadow:var(--shadow);}
+#hire .form-wrap{background:var(--off-white);}
+.form-wrap h3{font-family:var(--ff-head);font-size:22px;color:var(--navy);margin-bottom:6px;}
+.form-wrap p{font-size:14px;color:var(--gray);margin-bottom:28px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1.5px solid var(--gray-light);border-radius:8px;font-family:var(--ff-body);font-size:14px;color:var(--text);background:var(--white);transition:var(--transition);outline:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.1);}
+.form-group textarea{resize:vertical;min-height:100px;}
+.form-group input[type="file"]{padding:10px;cursor:pointer;}
+.btn-submit{width:100%;background:var(--navy);color:var(--white);padding:15px;border-radius:8px;font-size:15px;font-weight:600;border:none;cursor:pointer;transition:var(--transition);display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--ff-body);}
+.btn-submit:hover{background:var(--navy-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(10,22,40,0.2);}
+.form-success{display:none;text-align:center;padding:32px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);border-radius:12px;margin-top:16px;}
+.form-success i{font-size:40px;color:var(--gold);margin-bottom:12px;display:block;}
+.form-success h4{font-family:var(--ff-head);font-size:20px;color:var(--navy);margin-bottom:8px;}
+.form-success p{font-size:14px;color:var(--gray);}
+.form-info{display:flex;flex-direction:column;gap:24px;}
+.fi-card{background:var(--white);border-radius:12px;padding:24px;border-left:3px solid var(--gold);}
+#hire .fi-card{background:var(--off-white);}
+.fi-card h4{font-family:var(--ff-head);font-size:16px;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.fi-card h4 i{color:var(--gold);font-size:14px;}
+.fi-card p{font-size:13px;color:var(--gray);line-height:1.6;}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:var(--navy);padding:96px 24px;}
+#testimonials .section-title{color:var(--white);}
+#testimonials .section-sub{color:rgba(255,255,255,0.55);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.testi-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:28px;transition:var(--transition);}
+.testi-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px);}
+.testi-stars{display:flex;gap:4px;margin-bottom:16px;}
+.testi-stars i{color:var(--gold);font-size:14px;}
+.testi-text{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:20px;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--ff-head);font-weight:700;color:var(--navy);font-size:16px;}
+.testi-name{color:var(--white);font-weight:600;font-size:14px;}
+.testi-role{color:rgba(255,255,255,0.45);font-size:12px;}
+
+/* ── BLOG ── */
+#blog{background:var(--off-white);}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.blog-card{background:var(--white);border-radius:var(--radius);overflow:hidden;transition:var(--transition);border:1px solid var(--gray-light);}
+.blog-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+.blog-img{height:180px;background:var(--navy);position:relative;display:flex;align-items:center;justify-content:center;}
+.blog-img i{font-size:48px;color:rgba(201,168,76,0.3);}
+.blog-cat{position:absolute;top:16px;left:16px;background:var(--gold);color:var(--navy);padding:4px 12px;border-radius:100px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.blog-body{padding:24px;}
+.blog-date{font-size:12px;color:var(--gray);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.blog-body h3{font-family:var(--ff-head);font-size:17px;color:var(--navy);margin-bottom:10px;line-height:1.4;}
+.blog-body p{font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:16px;}
+.blog-read{font-size:13px;color:var(--gold);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
+.blog-read:hover{gap:10px;}
+
+/* ── CONTACT ── */
+#contact{background:var(--white);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:56px;align-items:start;}
+.contact-info{display:flex;flex-direction:column;gap:20px;}
+.ci-card{display:flex;align-items:flex-start;gap:16px;padding:20px;background:var(--off-white);border-radius:10px;}
+.ci-icon{width:44px;height:44px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ci-icon i{color:var(--gold);font-size:16px;}
+.ci-card h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.ci-card p{font-size:13px;color:var(--gray);line-height:1.5;}
+.map-wrap{border-radius:12px;overflow:hidden;margin-top:8px;border:1px solid var(--gray-light);}
+.contact-form-wrap{background:var(--off-white);border-radius:16px;padding:40px;box-shadow:var(--shadow);}
+.social-links{display:flex;gap:12px;margin-top:16px;}
+.social-links a{width:40px;height:40px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;transition:var(--transition);}
+.social-links a:hover{background:var(--gold);color:var(--navy);transform:translateY(-3px);}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,0.6);padding:56px 24px 24px;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-brand p{font-size:14px;line-height:1.7;margin-top:16px;color:rgba(255,255,255,0.45);}
+.footer-col h4{color:var(--white);font-size:14px;font-weight:600;margin-bottom:20px;letter-spacing:0.5px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul li a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:13px;transition:var(--transition);}
+.footer-col ul li a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:13px;}
+.footer-legal{display:flex;gap:24px;}
+.footer-legal a{color:rgba(255,255,255,0.4);text-decoration:none;font-size:13px;transition:var(--transition);}
+.footer-legal a:hover{color:var(--gold);}
+
+/* ── BACK TO TOP ── */
+#back-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--gold);color:var(--navy);border:none;border-radius:50%;font-size:16px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(201,168,76,0.4);transition:var(--transition);z-index:999;}
+#back-top.show{display:flex;}
+#back-top:hover{transform:translateY(-3px);background:var(--gold-light);}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal-right.visible{opacity:1;transform:translateX(0);}
+
+/* ── MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,22,40,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--white);border-radius:16px;padding:40px;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;position:relative;}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--gray);}
+.modal h3{font-family:var(--ff-head);font-size:22px;color:var(--navy);margin-bottom:6px;}
+.modal .modal-job-title{font-size:14px;color:var(--gold);font-weight:600;margin-bottom:24px;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:48px;text-align:center;}
+  .hero-btns{justify-content:center;}
+  .hero-stats{grid-template-columns:repeat(3,1fr);}
+  .hero-visual{display:none;}
+  .about-grid{grid-template-columns:1fr;}
+  .forms-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .testi-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  section{padding:72px 20px;}
+  .services-grid{grid-template-columns:1fr;}
+  .blog-grid{grid-template-columns:1fr;}
+  .testi-grid{grid-template-columns:1fr;}
+  .jobs-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+  .hero-stats{grid-template-columns:repeat(3,1fr);}
+  .mv-grid{grid-template-columns:1fr;}
+  .services-tabs{flex-wrap:wrap;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="logo">
+      <div class="logo-icon"><i class="fas fa-briefcase"></i></div>
+      <div class="logo-text">
+        <span>EliteRecruitment</span>
+        <span>UAE</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#jobs">Jobs</a></li>
+      <li><a href="#apply">Apply</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#hire" class="nav-cta">Hire Staff</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="#home" onclick="closeMobile()">Home</a></li>
+    <li><a href="#about" onclick="closeMobile()">About</a></li>
+    <li><a href="#services" onclick="closeMobile()">Services</a></li>
+    <li><a href="#jobs" onclick="closeMobile()">Jobs</a></li>
+    <li><a href="#apply" onclick="closeMobile()">Apply</a></li>
+    <li><a href="#blog" onclick="closeMobile()">Blog</a></li>
+    <li><a href="#contact" onclick="closeMobile()">Contact</a></li>
+    <li><a href="#hire" onclick="closeMobile()">Hire Staff</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge reveal"><i class="fas fa-star"></i> UAE's Premier Recruitment Consultancy</div>
+      <h1 class="hero-title reveal">Connecting <em>Top Talent</em> with Leading Employers</h1>
+      <p class="hero-sub reveal">Specialist recruitment solutions across UAE and GCC — placing professionals in finance, technology, engineering, healthcare and beyond.</p>
+      <div class="hero-btns reveal">
+        <a href="#apply" class="btn-primary"><i class="fas fa-user-tie"></i> Apply for Jobs</a>
+        <a href="#hire" class="btn-outline"><i class="fas fa-building"></i> Hire Staff</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat reveal"><div class="stat-num">2,400+</div><div class="stat-label">Placements</div></div>
+        <div class="stat reveal"><div class="stat-num">350+</div><div class="stat-label">Partners</div></div>
+        <div class="stat reveal"><div class="stat-num">12 Yrs</div><div class="stat-label">Experience</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hc-top">
+          <div class="hc-icon"><i class="fas fa-chart-line"></i></div>
+          <div><div class="hc-title">Senior Financial Analyst</div><div class="hc-sub">DIFC, Dubai</div></div>
+        </div>
+        <span class="hc-tag">AED 22,000/mo</span>&nbsp;<span class="hc-tag">Full-time</span>
+      </div>
+      <div class="hero-card">
+        <div class="hc-top">
+          <div class="hc-icon"><i class="fas fa-code"></i></div>
+          <div><div class="hc-title">Full Stack Developer</div><div class="hc-sub">Abu Dhabi, UAE</div></div>
+        </div>
+        <span class="hc-tag">AED 18,000/mo</span>&nbsp;<span class="hc-tag">Hybrid</span>
+      </div>
+      <div class="hero-card">
+        <div class="hc-top">
+          <div class="hc-icon"><i class="fas fa-stethoscope"></i></div>
+          <div><div class="hc-title">Clinical Nurse Specialist</div><div class="hc-sub">Sharjah, UAE</div></div>
+        </div>
+        <span class="hc-tag">AED 14,000/mo</span>&nbsp;<span class="hc-tag">Full-time</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal-left">
+        <div class="about-img-bg"><i class="fas fa-city"></i></div>
+        <div class="about-accent"><span>12+</span><span>Years in UAE</span></div>
+      </div>
+      <div class="about-content reveal-right">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Trusted Recruitment Partner Across the GCC</h2>
+        <p class="section-sub">EliteRecruitment UAE has been at the forefront of talent acquisition since 2012 — connecting ambitious professionals with organisations that value excellence. We operate across all seven UAE emirates and the wider GCC region.</p>
+        <div class="mv-grid">
+          <div class="mv-card">
+            <h4>Our Mission</h4>
+            <p>To deliver precise, ethical, and efficient recruitment that creates lasting value for both candidates and employers.</p>
+          </div>
+          <div class="mv-card">
+            <h4>Our Vision</h4>
+            <p>To be the most trusted name in GCC recruitment — known for integrity, speed and quality of placement.</p>
+          </div>
+        </div>
+        <div class="why-list">
+          <div class="why-item"><i class="fas fa-check-circle"></i><span>Deep UAE market knowledge with sector-specialist consultants</span></div>
+          <div class="why-item"><i class="fas fa-check-circle"></i><span>Average placement time of 14 days from brief to offer</span></div>
+          <div class="why-item"><i class="fas fa-check-circle"></i><span>Verified candidate pool of over 40,000 active professionals</span></div>
+          <div class="why-item"><i class="fas fa-check-circle"></i><span>Full compliance with UAE Labour Law and MOHRE standards</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Services Tailored to Your Needs</h2>
+      <p class="section-sub">Whether you're a professional seeking your next role or a company building your team — we have a solution.</p>
+    </div>
+    <div class="services-tabs">
+      <button class="s-tab active" onclick="filterServices('all')">All Services</button>
+      <button class="s-tab" onclick="filterServices('seeker')">For Job Seekers</button>
+      <button class="s-tab" onclick="filterServices('employer')">For Employers</button>
+    </div>
+    <div class="services-grid" id="services-grid">
+      <div class="svc-card reveal" data-cat="seeker">
+        <div class="svc-icon"><i class="fas fa-briefcase"></i></div>
+        <h3>Job Placement</h3>
+        <p>We match your skills, experience and career goals with the right opportunities across UAE's most respected organisations.</p>
+      </div>
+      <div class="svc-card reveal" data-cat="seeker">
+        <div class="svc-icon"><i class="fas fa-file-alt"></i></div>
+        <h3>Resume Support</h3>
+        <p>Our experts craft ATS-optimised CVs tailored to UAE and GCC market expectations — increasing callback rates significantly.</p>
+      </div>
+      <div class="svc-card reveal" data-cat="seeker">
+        <div class="svc-icon"><i class="fas fa-comments"></i></div>
+        <h3>Interview Preparation</h3>
+        <p>Structured mock interviews, competency-based question coaching and feedback sessions to sharpen your performance.</p>
+      </div>
+      <div class="svc-card reveal" data-cat="employer">
+        <div class="svc-icon"><i class="fas fa-search"></i></div>
+        <h3>Staff Recruitment</h3>
+        <p>End-to-end recruitment from brief to onboarding — we handle sourcing, screening, interviewing and reference checks.</p>
+      </div>
+      <div class="svc-card reveal" data-cat="employer">
+        <div class="svc-icon"><i class="fas fa-users"></i></div>
+        <h3>Bulk Hiring</h3>
+        <p>Rapid large-scale talent acquisition for expansion projects, new office launches and seasonal workforce needs across UAE.</p>
+      </div>
+      <div class="svc-card reveal" data-cat="employer">
+        <div class="svc-icon"><i class="fas fa-chart-bar"></i></div>
+        <h3>HR Consulting</h3>
+        <p>Salary benchmarking, job architecture, workforce planning and UAE Labour Law compliance advisory for growing businesses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOBS -->
+<section id="jobs">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-label">Open Positions</div>
+      <h2 class="section-title">Current Job Listings</h2>
+      <p class="section-sub">Hand-picked roles from verified UAE employers. Updated weekly.</p>
+    </div>
+    <div class="jobs-grid" id="jobs-grid"></div>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section id="apply">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-label">For Candidates</div>
+      <h2 class="section-title">Apply for a Position</h2>
+      <p class="section-sub">Submit your profile and our team will match you to the right opportunities.</p>
+    </div>
+    <div class="forms-grid">
+      <div class="form-info reveal-left">
+        <div class="fi-card">
+          <h4><i class="fas fa-clock"></i> Fast Response</h4>
+          <p>Our consultants review every application within 2 business days and reach out directly to qualified candidates.</p>
+        </div>
+        <div class="fi-card">
+          <h4><i class="fas fa-shield-alt"></i> Confidential</h4>
+          <p>Your information is never shared with any employer without your explicit consent. Full PDPL compliance.</p>
+        </div>
+        <div class="fi-card">
+          <h4><i class="fas fa-globe"></i> UAE-Wide Network</h4>
+          <p>Access to opportunities across all seven emirates and major free zones including DMCC, JAFZA, DIFC and ADGM.</p>
+        </div>
+        <div class="fi-card">
+          <h4><i class="fas fa-hand-holding-usd"></i> Free for Candidates</h4>
+          <p>Our placement service is completely free for job seekers. We are compensated by our employer partners.</p>
+        </div>
+      </div>
+      <div class="form-wrap reveal-right">
+        <h3>Candidate Application</h3>
+        <p>Fill in your details and attach your CV to get started.</p>
+        <form id="candidate-form" novalidate>
+          <div class="form-row">
+            <div class="form-group"><label>Full Name *</label><input type="text" id="c-name" placeholder="Your full name" required/></div>
+            <div class="form-group"><label>Email *</label><input type="email" id="c-email" placeholder="your@email.com" required/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Phone *</label><input type="tel" id="c-phone" placeholder="+971 50 000 0000" required/></div>
+            <div class="form-group"><label>Years of Experience *</label>
+              <select id="c-exp" required>
+                <option value="">Select</option>
+                <option>0–1 year</option><option>1–3 years</option><option>3–5 years</option>
+                <option>5–10 years</option><option>10+ years</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label>Key Skills *</label><input type="text" id="c-skills" placeholder="e.g. Accounting, SAP, UAE VAT, Excel" required/></div>
+          <div class="form-group"><label>Job Applied For *</label>
+            <select id="c-job" required>
+              <option value="">Select a position</option>
+              <option>Senior Financial Analyst</option><option>Full Stack Developer</option>
+              <option>Clinical Nurse Specialist</option><option>HR Manager</option>
+              <option>Project Manager</option><option>Sales Executive</option>
+              <option>Operations Manager</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Upload CV (PDF/DOC)</label><input type="file" id="c-resume" accept=".pdf,.doc,.docx"/></div>
+          <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Submit Application</button>
+        </form>
+        <div class="form-success" id="candidate-success">
+          <i class="fas fa-check-circle"></i>
+          <h4>Application Received!</h4>
+          <p>Thank you for applying. A consultant will contact you within 2 business days.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIRE -->
+<section id="hire">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-label">For Employers</div>
+      <h2 class="section-title">Hire the Right Talent</h2>
+      <p class="section-sub">Tell us your requirements and we'll deliver pre-screened, qualified candidates fast.</p>
+    </div>
+    <div class="forms-grid">
+      <div class="form-wrap reveal-left">
+        <h3>Employer Enquiry</h3>
+        <p>Share your hiring needs and we'll get back to you within 24 hours.</p>
+        <form id="employer-form" novalidate>
+          <div class="form-row">
+            <div class="form-group"><label>Company Name *</label><input type="text" id="e-company" placeholder="Your company name" required/></div>
+            <div class="form-group"><label>Contact Person *</label><input type="text" id="e-contact" placeholder="Full name" required/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Email *</label><input type="email" id="e-email" placeholder="hr@company.com" required/></div>
+            <div class="form-group"><label>Phone *</label><input type="tel" id="e-phone" placeholder="+971 4 000 0000" required/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Job Role Required *</label><input type="text" id="e-role" placeholder="e.g. Senior Accountant" required/></div>
+            <div class="form-group"><label>Number of Positions *</label>
+              <select id="e-count" required>
+                <option value="">Select</option>
+                <option>1</option><option>2–5</option><option>6–10</option>
+                <option>11–20</option><option>20+</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label>Message / Requirements</label><textarea id="e-message" placeholder="Describe the role, experience level, salary budget, timeline..."></textarea></div>
+          <button type="submit" class="btn-submit" style="background:var(--gold);color:var(--navy);"><i class="fas fa-handshake"></i> Submit Enquiry</button>
+        </form>
+        <div class="form-success" id="employer-success">
+          <i class="fas fa-check-circle"></i>
+          <h4>Enquiry Received!</h4>
+          <p>A senior consultant will contact you within 24 hours to discuss your requirements.</p>
+        </div>
+      </div>
+      <div class="form-info reveal-right">
+        <div class="fi-card">
+          <h4><i class="fas fa-bolt"></i> 14-Day Average Placement</h4>
+          <p>Our streamlined process means you receive qualified shortlists within 72 hours of briefing.</p>
+        </div>
+        <div class="fi-card">
+          <h4><i class="fas fa-certificate"></i> Pre-Screened Candidates</h4>
+          <p>Every candidate is verified for qualifications, work history, references and UAE visa eligibility before presentation.</p>
+        </div>
+        <div class="fi-card">
+          <h4><i class="fas fa-undo"></i> Replacement Guarantee</h4>
+          <p>Free replacement within 90 days if a placed candidate leaves or is not a suitable fit — zero additional cost.</p>
+        </div>
+        <div class="fi-card">
+          <h4><i class="fas fa-gavel"></i> Labour Law Compliant</h4>
+          <p>Full compliance with UAE Labour Law, MOHRE regulations and Emiratisation (Nafis) programme requirements.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-label">Testimonials</div>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-sub">Trusted by thousands of professionals and hundreds of organisations across UAE.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">"EliteRecruitment placed me in my current role as Finance Manager at a DIFC firm within three weeks. Their consultants genuinely understood what I was looking for."</p>
+        <div class="testi-author"><div class="testi-avatar">AK</div><div><div class="testi-name">Ahmed Al-Khalidi</div><div class="testi-role">Finance Manager, DIFC Dubai</div></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">"As an HR Director, I've used many agencies. EliteRecruitment stands out — their shortlists are tight, pre-screened and on brief. They saved us weeks of work."</p>
+        <div class="testi-author"><div class="testi-avatar">SP</div><div><div class="testi-name">Sarah Petrov</div><div class="testi-role">HR Director, Abu Dhabi</div></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">"I relocated from India and was anxious about finding work in UAE. The team guided me through everything — visa, salary negotiation, even the interview. Outstanding."</p>
+        <div class="testi-author"><div class="testi-avatar">RM</div><div><div class="testi-name">Rahul Mehta</div><div class="testi-role">IT Project Manager, Sharjah</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-label">Career Tips</div>
+      <h2 class="section-title">Insights & Advice</h2>
+      <p class="section-sub">Expert guidance for UAE job seekers and hiring managers.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-img"><i class="fas fa-file-signature"></i><span class="blog-cat">CV Tips</span></div>
+        <div class="blog-body">
+          <div class="blog-date"><i class="fas fa-calendar"></i> 15 Jan 2025</div>
+          <h3>How to Write a UAE-Standard CV That Gets Callbacks</h3>
+          <p>The UAE job market has specific CV expectations. Learn what hiring managers look for — and what to avoid — in this competitive market.</p>
+          <a href="#" class="blog-read">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-img"><i class="fas fa-balance-scale"></i><span class="blog-cat">Labour Law</span></div>
+        <div class="blog-body">
+          <div class="blog-date"><i class="fas fa-calendar"></i> 8 Jan 2025</div>
+          <h3>UAE Labour Law 2024: Key Rights Every Employee Must Know</h3>
+          <p>From gratuity calculations to probation periods — a clear breakdown of your rights under Federal Decree-Law No. 33 of 2021.</p>
+          <a href="#" class="blog-read">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-img"><i class="fas fa-chart-line"></i><span class="blog-cat">Salary Guide</span></div>
+        <div class="blog-body">
+          <div class="blog-date"><i class="fas fa-calendar"></i> 2 Jan 2025</div>
+          <h3>UAE Salary Guide 2025: What Professionals Are Earning</h3>
+          <p>Our annual salary benchmarking report covering finance, technology, engineering, healthcare and operations roles across UAE.</p>
+          <a href="#" class="blog-read">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-sub">Our team is available Saturday to Thursday, 9am–6pm UAE time.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <div class="ci-card">
+          <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><h4>Office Address</h4><p>Office 1204, Burjuman Business Tower<br>Sheikh Khalifa Bin Zayed Rd, Dubai, UAE</p></div>
+        </div>
+        <div class="ci-card">
+          <div class="ci-icon"><i class="fas fa-phone"></i></div>
+          <div><h4>Phone</h4><p>+971 4 000 0000<br>+971 50 000 0000</p></div>
+        </div>
+        <div class="ci-card">
+          <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+          <div><h4>Email</h4><p>info@eliterecruitment.ae<br>jobs@eliterecruitment.ae</p></div>
+        </div>
+        <div class="ci-card">
+          <div class="ci-icon"><i class="fas fa-clock"></i></div>
+          <div><h4>Working Hours</h4><p>Saturday – Thursday: 9:00 AM – 6:00 PM<br>Friday: Closed</p></div>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178530255764!2d55.29777!3d25.22!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDEzJzEyLjAiTiA1NcKwMTcnNTIuMCJF!5e0!3m2!1sen!2sae!4v1620000000000!5m2!1sen!2sae" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal-right">
+        <h3 style="font-family:var(--ff-head);font-size:22px;color:var(--navy);margin-bottom:6px;">Send a Message</h3>
+        <p style="font-size:14px;color:var(--gray);margin-bottom:28px;">We'll get back to you within one business day.</p>
+        <form id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group"><label>Full Name *</label><input type="text" id="ct-name" placeholder="Your name" required/></div>
+            <div class="form-group"><label>Email *</label><input type="email" id="ct-email" placeholder="your@email.com" required/></div>
+          </div>
+          <div class="form-group"><label>Subject *</label><input type="text" id="ct-subject" placeholder="How can we help?" required/></div>
+          <div class="form-group"><label>Message *</label><textarea id="ct-message" placeholder="Your message..." style="min-height:140px;" required></textarea></div>
+          <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+        <div class="form-success" id="contact-success">
+          <i class="fas fa-check-circle"></i>
+          <h4>Message Sent!</h4>
+          <p>Thank you for reaching out. We'll reply within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <div class="logo-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="logo-text"><span>EliteRecruitment</span><span>UAE</span></div>
+        </a>
+        <p>UAE's trusted recruitment consultancy since 2012 — placing talent across finance, technology, engineering, healthcare and operations throughout the GCC.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#jobs">Job Listings</a></li>
+          <li><a href="#blog">Career Tips</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>For Candidates</h4>
+        <ul>
+          <li><a href="#apply">Apply Now</a></li>
+          <li><a href="#blog">CV Tips</a></li>
+          <li><a href="#blog">Interview Prep</a></li>
+          <li><a href="#blog">Salary Guide</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>For Employers</h4>
+        <ul>
+          <li><a href="#hire">Hire Staff</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#testimonials">Success Stories</a></li>
+          <li><a href="#contact">Get a Quote</a></li>
+          <li><a href="#contact">Partnership</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 EliteRecruitment UAE. All rights reserved. Trade License: DED-XXXXXX</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    <h3>Apply for Position</h3>
+    <p class="modal-job-title" id="modal-job-name"></p>
+    <form id="modal-form" novalidate>
+      <div class="form-row">
+        <div class="form-group"><label>Full Name *</label><input type="text" id="m-name" placeholder="Your full name" required/></div>
+        <div class="form-group"><label>Email *</label><input type="email" id="m-email" placeholder="your@email.com" required/></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Phone *</label><input type="tel" id="m-phone" placeholder="+971 50 000 0000" required/></div>
+        <div class="form-group"><label>Experience</label>
+          <select id="m-exp">
+            <option>0–1 year</option><option>1–3 years</option><option>3–5 years</option><option>5+ years</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Key Skills</label><input type="text" id="m-skills" placeholder="Relevant skills"/></div>
+      <div class="form-group"><label>Upload CV</label><input type="file" id="m-resume" accept=".pdf,.doc,.docx"/></div>
+      <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Submit Application</button>
+    </form>
+    <div class="form-success" id="modal-success">
+      <i class="fas fa-check-circle"></i>
+      <h4>Application Submitted!</h4>
+      <p>We'll be in touch within 2 business days.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── EMAILJS CONFIG ──
+// Replace these with your actual EmailJS credentials
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_CANDIDATE = 'YOUR_CANDIDATE_TEMPLATE_ID';
+const EMAILJS_TEMPLATE_EMPLOYER  = 'YOUR_EMPLOYER_TEMPLATE_ID';
+const EMAILJS_TEMPLATE_CONTACT   = 'YOUR_CONTACT_TEMPLATE_ID';
+
+(function(){
+  try { emailjs.init(EMAILJS_PUBLIC_KEY); } catch(e){}
+})();
+
+// ── JOB DATA ──
+const jobs = [
+  {title:'Senior Financial Analyst',company:'Leading Investment Bank',location:'DIFC, Dubai',type:'Full-time',salary:'AED 20,000–25,000',icon:'fa-chart-line',desc:'CPA/ACCA qualified. 5+ years in financial analysis. Strong Excel and Bloomberg skills required.'},
+  {title:'Full Stack Developer',company:'UAE FinTech Startup',location:'Dubai Internet City',type:'Hybrid',salary:'AED 15,000–20,000',icon:'fa-code',desc:'React, Node.js, PostgreSQL. 3+ years experience. AWS knowledge a plus.'},
+  {title:'HR Manager',company:'Multinational FMCG',location:'Abu Dhabi',type:'Full-time',salary:'AED 18,000–22,000',icon:'fa-users',desc:'CIPD qualified preferred. 7+ years HR experience. UAE Labour Law expertise essential.'},
+  {title:'Clinical Nurse Specialist',company:'Private Hospital Group',location:'Sharjah',type:'Full-time',salary:'AED 12,000–16,000',icon:'fa-stethoscope',desc:'DHA/HAAD licensed. ICU/CCU experience. Minimum 5 years post-qualification.'},
+  {title:'Sales Executive',company:'Real Estate Developer',location:'Dubai',type:'Full-time',salary:'AED 8,000 + Commission',icon:'fa-handshake',desc:'RERA certified. 2+ years UAE real estate sales. Arabic language a strong advantage.'},
+  {title:'Project Manager',company:'Engineering Consultancy',location:'Abu Dhabi',type:'Full-time',salary:'AED 22,000–28,000',icon:'fa-tasks',desc:'PMP certified. 8+ years managing infrastructure projects. Oil & gas sector experience preferred.'},
+];
+
+function renderJobs(){
+  const grid = document.getElementById('jobs-grid');
+  grid.innerHTML = jobs.map(j=>`
+    <div class="job-card reveal">
+      <div class="job-top">
+        <div>
+          <div class="job-title">${j.title}</div>
+          <div style="color:rgba(255,255,255,0.45);font-size:13px;margin-top:4px;">${j.company}</div>
+        </div>
+        <span class="job-badge">${j.type}</span>
+      </div>
+      <div class="job-meta">
+        <span><i class="fas fa-map-marker-alt"></i>${j.location}</span>
+        <span><i class="fas fa-money-bill-wave"></i>${j.salary}</span>
+      </div>
+      <div class="job-desc">${j.desc}</div>
+      <button class="job-apply" onclick="openModal('${j.title}')">
+        <i class="fas fa-arrow-right"></i> Apply Now
+      </button>
+    </div>
+  `).join('');
+  observeReveal();
+}
+renderJobs();
+
+// ── SERVICES FILTER ──
+function filterServices(cat){
+  document.querySelectorAll('.s-tab').forEach(t=>t.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.svc-card').forEach(c=>{
+    if(cat==='all'||c.dataset.cat===cat){c.style.display='block';}
+    else{c.style.display='none';}
+  });
+}
+
+// ── MODAL ──
+function openModal(title){
+  document.getElementById('modal-job-name').textContent=title;
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('modal-success').style.display='none';
+  document.getElementById('modal-form').style.display='block';
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('modal').addEventListener('click',function(e){
+  if(e.target===this)closeModal();
+});
+
+// ── HAMBURGER ──
+const ham=document.getElementById('hamburger');
+const mob=document.getElementById('mobile-menu');
+ham.addEventListener('click',()=>{
+  ham.classList.toggle('active');
+  mob.classList.toggle('open');
+});
+function closeMobile(){
+  ham.classList.remove('active');
+  mob.classList.remove('open');
+}
+
+// ── BACK TO TOP ──
+const btt=document.getElementById('back-top');
+window.addEventListener('scroll',()=>{
+  btt.classList.toggle('show',window.scrollY>400);
+});
+
+// ── SCROLL REVEAL ──
+function observeReveal(){
+  const els=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}});
+  },{threshold:0.1});
+  els.forEach(el=>obs.observe(el));
+}
+observeReveal();
+
+// ── FORM VALIDATION HELPER ──
+function validate(fields){
+  let ok=true;
+  fields.forEach(({id,label})=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    if(!el.value.trim()){
+      el.style.borderColor='#E24B4A';
+      ok=false;
+    } else {
+      el.style.borderColor='';
+    }
+  });
+  return ok;
+}
+
+// ── SEND EMAIL (with fallback if EmailJS not configured) ──
+function sendEmail(templateId, params, successId, formId){
+  const showSuccess=()=>{
+    document.getElementById(formId).style.display='none';
+    document.getElementById(successId).style.display='block';
+  };
+  if(EMAILJS_SERVICE_ID==='YOUR_SERVICE_ID'){
+    // Demo mode — just show success
+    setTimeout(showSuccess,800);
+    return;
+  }
+  emailjs.send(EMAILJS_SERVICE_ID, templateId, params)
+    .then(showSuccess)
+    .catch(()=>{ alert('Message sent! (EmailJS not yet configured — configure your keys to enable email delivery.)'); showSuccess(); });
+}
+
+// ── CANDIDATE FORM ──
+document.getElementById('candidate-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  const ok=validate([
+    {id:'c-name'},{id:'c-email'},{id:'c-phone'},{id:'c-exp'},{id:'c-skills'},{id:'c-job'}
+  ]);
+  if(!ok){alert('Please fill in all required fields.');return;}
+  const btn=this.querySelector('.btn-submit');
+  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';
+  btn.disabled=true;
+  sendEmail(EMAILJS_TEMPLATE_CANDIDATE,{
+    from_name:document.getElementById('c-name').value,
+    from_email:document.getElementById('c-email').value,
+    phone:document.getElementById('c-phone').value,
+    experience:document.getElementById('c-exp').value,
+    skills:document.getElementById('c-skills').value,
+    job_applied:document.getElementById('c-job').value,
+  },'candidate-success','candidate-form');
+});
+
+// ── EMPLOYER FORM ──
+document.getElementById('employer-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  const ok=validate([
+    {id:'e-company'},{id:'e-contact'},{id:'e-email'},{id:'e-phone'},{id:'e-role'},{id:'e-count'}
+  ]);
+  if(!ok){alert('Please fill in all required fields.');return;}
+  const btn=this.querySelector('.btn-submit');
+  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';
+  btn.disabled=true;
+  sendEmail(EMAILJS_TEMPLATE_EMPLOYER,{
+    company:document.getElementById('e-company').value,
+    contact:document.getElementById('e-contact').value,
+    email:document.getElementById('e-email').value,
+    phone:document.getElementById('e-phone').value,
+    role:document.getElementById('e-role').value,
+    count:document.getElementById('e-count').value,
+    message:document.getElementById('e-message').value,
+  },'employer-success','employer-form');
+});
+
+// ── CONTACT FORM ──
+document.getElementById('contact-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  const ok=validate([
+    {id:'ct-name'},{id:'ct-email'},{id:'ct-subject'},{id:'ct-message'}
+  ]);
+  if(!ok){alert('Please fill in all required fields.');return;}
+  const btn=this.querySelector('.btn-submit');
+  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';
+  btn.disabled=true;
+  sendEmail(EMAILJS_TEMPLATE_CONTACT,{
+    from_name:document.getElementById('ct-name').value,
+    from_email:document.getElementById('ct-email').value,
+    subject:document.getElementById('ct-subject').value,
+    message:document.getElementById('ct-message').value,
+  },'contact-success','contact-form');
+});
+
+// ── MODAL FORM ──
+document.getElementById('modal-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  const ok=validate([{id:'m-name'},{id:'m-email'},{id:'m-phone'}]);
+  if(!ok){alert('Please fill in required fields.');return;}
+  const btn=this.querySelector('.btn-submit');
+  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';
+  btn.disabled=true;
+  const jobTitle=document.getElementById('modal-job-name').textContent;
+  sendEmail(EMAILJS_TEMPLATE_CANDIDATE,{
+    from_name:document.getElementById('m-name').value,
+    from_email:document.getElementById('m-email').value,
+    phone:document.getElementById('m-phone').value,
+    experience:document.getElementById('m-exp').value,
+    skills:document.getElementById('m-skills').value,
+    job_applied:jobTitle,
+  },'modal-success','modal-form');
+});
+</script>
+</body>
+</html>
