@@ -453,33 +453,7 @@
 
     <div id="about" style="height: 100px;"></div>
 
-    <footer id="contact">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>UAE Headquarters</h4>
-                <p>Mazyad Mall - Office 626</p>
-                <p>Tower 2 - Mussafah - Z9 01</p>
-                <p>Abu Dhabi, UAE</p>
-                <a href="tel:+971556533417"><i class="fas fa-phone"></i> +971 556 533417</a>
-            </div>
-            <div class="footer-col">
-                <h4>India Office</h4>
-                <p>Khanyar, Srinagar</p>
-                <p>Jammu & Kashmir</p>
-                <a href="tel:+919596115725"><i class="fas fa-phone"></i> +91 9596 115725</a>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <a href="#services">Our Services</a>
-                <a href="#jobs">Current Openings</a>
-                <a href="#apply">Submit CV</a>
-                <a href="https://www.instagram.com/dream_line_47">Follow on Instagram</a>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-dim); font-size: 0.8rem;">
-            &copy; 2026 Dream Line Global Consultancy. All Rights Reserved.
-        </div>
-    </footer>
+    
 
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
@@ -957,6 +931,450 @@
                     setTimeout(() => alertBox.style.display = 'none', 5000);
                 });
         });
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal | Dream Line Global Consultancy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("SCkaneqjw-qgWFIzx");
+        })();
+    </script>
+    
+    <style>
+        :root {
+            --bg-dark: #0a0f18;
+            --bg-card: #121926;
+            --primary: #00d4ff;
+            --accent: #d4af37;
+            --text-white: #f8fafc;
+            --text-dim: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.03);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Background Glow */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #16213e 0%, #0a0f18 100%);
+            z-index: -1;
+        }
+
+        /* Header Style */
+        header {
+            position: sticky;
+            top: 0; width: 100%; padding: 15px 5%;
+            background: rgba(10, 15, 24, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo { font-family: 'Poppins'; font-weight: 700; text-decoration: none; color: white; font-size: 1.4rem; }
+        .logo span { color: var(--primary); }
+
+        /* Portal Header */
+        .portal-header {
+            padding: 100px 5% 50px;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0, 212, 255, 0.05), transparent);
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .portal-header h1 { font-family: 'Poppins'; font-size: 3rem; margin-bottom: 10px; }
+        .portal-header p { color: var(--text-dim); font-size: 1.1rem; }
+
+        /* Search System */
+        .search-container {
+            max-width: 1100px;
+            margin: -40px auto 50px;
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .search-container input, .search-container select {
+            width: 100%;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 12px 15px;
+            border-radius: 8px;
+            color: white;
+            outline: none;
+        }
+
+        /* Job Listings */
+        .jobs-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .job-card {
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .job-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .job-title { font-family: 'Poppins'; font-size: 1.4rem; margin-bottom: 15px; }
+        .job-meta { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; color: var(--text-dim); font-size: 0.85rem; }
+        .job-meta span { display: flex; align-items: center; gap: 6px; }
+
+        .job-desc { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 25px; line-height: 1.5; }
+
+        .btn-apply {
+            background: var(--primary);
+            color: #000;
+            text-decoration: none;
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .btn-apply:hover { background: #fff; box-shadow: 0 5px 15px rgba(0,212,255,0.4); }
+
+        /* Quick Apply Form */
+        .apply-section { padding: 100px 5%; background: rgba(0,0,0,0.2); margin-top: 80px; }
+        .apply-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .full-width { grid-column: span 2; }
+
+        input, textarea {
+            width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px; border-radius: 8px; color: white; outline: none; transition: var(--transition);
+        }
+
+        .file-box {
+            border: 2px dashed rgba(255,255,255,0.1); padding: 20px; text-align: center;
+            border-radius: 8px; cursor: pointer; transition: var(--transition);
+        }
+
+        .btn-submit {
+            width: 100%; padding: 18px; background: var(--primary); border: none;
+            border-radius: 8px; color: #000; font-weight: 700; cursor: pointer;
+            text-transform: uppercase; transition: var(--transition);
+        }
+
+        /* Benefits Section */
+        .benefits { padding: 100px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .benefit-card { text-align: center; padding: 40px; background: var(--glass); border-radius: 15px; transition: var(--transition); }
+        .benefit-card:hover { background: rgba(0, 212, 255, 0.05); transform: scale(1.05); }
+        .benefit-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
+
+        .highlight-form { animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(0, 212, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0); } }
+
+        #empty-msg { text-align: center; grid-column: 1 / -1; padding: 50px; color: var(--text-dim); display: none; }
+
+        @media (max-width: 768px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+            .portal-header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <header>
+        <a href="homepage.html" class="logo">Dream Line <span>Global</span></a>
+        <div style="color: var(--text-dim); font-size: 0.8rem;">Professional Recruitment Portal</div>
+    </header>
+
+    <section class="portal-header">
+        <h1>Available Opportunities</h1>
+        <p>Your gateway to premium careers in Dubai, India, and beyond.</p>
+    </section>
+
+    <div class="search-container">
+        <input type="text" id="searchTitle" placeholder="Search job title..." onkeyup="filterJobs()">
+        <select id="filterLocation" onchange="filterJobs()">
+            <option value="">All Locations</option>
+            <option value="Dubai, UAE">Dubai, UAE</option>
+            <option value="Abu Dhabi, UAE">Abu Dhabi, UAE</option>
+            <option value="Srinagar, India">Srinagar, India</option>
+            <option value="Riyadh, Saudi">Riyadh, Saudi</option>
+        </select>
+        <select id="filterCategory" onchange="filterJobs()">
+            <option value="">All Categories</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Management">Management</option>
+            <option value="Hospitality">Hospitality</option>
+            <option value="Construction">Construction</option>
+        </select>
+        <select id="filterExp" onchange="filterJobs()">
+            <option value="">Experience Level</option>
+            <option value="Entry Level">Entry Level</option>
+            <option value="2-5 Years">2-5 Years</option>
+            <option value="5+ Years">5+ Years</option>
+        </select>
+    </div>
+
+    <div class="jobs-wrapper" id="jobsGrid">
+        <div id="empty-msg">No jobs found matching your criteria.</div>
+    </div>
+
+    <section class="benefits">
+        <div class="benefit-card">
+            <i class="fas fa-user-check"></i>
+            <h3>Verified Employers</h3>
+            <p>We only work with licensed and reputable global firms.</p>
+        </div>
+        <div class="benefit-card">
+            <i class="fas fa-bolt"></i>
+            <h3>Fast Placement</h3>
+            <p>Direct connections to HR managers for quicker results.</p>
+        </div>
+        <div class="benefit-card">
+            <i class="fas fa-globe"></i>
+            <h3>International Jobs</h3>
+            <p>Wide variety of roles across Middle East and Europe.</p>
+        </div>
+    </section>
+
+    <section class="apply-section" id="applicationForm">
+        <div class="apply-container" id="formWrapper">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2 style="font-family: 'Poppins';">Quick Application</h2>
+                <p style="color: var(--text-dim);">Submit your CV and we'll handle the rest.</p>
+            </div>
+
+            <div id="success-alert" style="display:none; background:rgba(16,185,129,0.2); color:#10b981; padding:15px; border-radius:8px; margin-bottom:20px; text-align:center;">
+                Application sent successfully! Our team will contact you soon.
+            </div>
+
+            <form id="job-apply-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label style="display:block; margin-bottom:8px; font-size:0.8rem;">Full Name</label>
+                        <input type="text" name="user_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label style="display:block; margin-bottom:8px; font-size:0.8rem;">Email Address</label>
+                        <input type="email" name="user_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label style="display:block; margin-bottom:8px; font-size:0.8rem;">Phone Number</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label style="display:block; margin-bottom:8px; font-size:0.8rem;">Applying For</label>
+                        <input type="text" name="job_role" id="targetJob" readonly style="background:rgba(255,255,255,0.05);">
+                    </div>
+                    <div class="form-group full-width">
+                        <label style="display:block; margin-bottom:8px; font-size:0.8rem;">Upload Resume (PDF only)</label>
+                        <div class="file-box" onclick="document.getElementById('fileInput').click()">
+                            <i class="fas fa-file-pdf" style="color:var(--primary);"></i>
+                            <span id="fileName">Select PDF file</span>
+                        </div>
+                        <input type="file" id="fileInput" name="my_file" accept=".pdf" style="display:none" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit" id="submitBtn" style="margin-top:20px;">
+                    Send Application
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>UAE Headquarters</h4>
+                <p>Mazyad Mall - Office 626</p>
+                <p>Tower 2 - Mussafah - Z9 01</p>
+                <p>Abu Dhabi, UAE</p>
+                <a href="tel:+971556533417"><i class="fas fa-phone"></i> +971 556 533417</a>
+            </div>
+            <div class="footer-col">
+                <h4>India Office</h4>
+                <p>Khanyar, Srinagar</p>
+                <p>Jammu & Kashmir</p>
+                <a href="tel:+919596115725"><i class="fas fa-phone"></i> +91 9596 115725</a>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#services">Our Services</a>
+                <a href="#jobs">Current Openings</a>
+                <a href="#apply">Submit CV</a>
+                <a href="https://www.instagram.com/dream_line_47">Follow on Instagram</a>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-dim); font-size: 0.8rem;">
+            &copy; 2026 Dream Line Global Consultancy. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        const jobs = [
+            { id: 1, title: "Operations Manager", location: "Dubai, UAE", category: "Management", exp: "5+ Years", salary: "12k - 15k AED", type: "Full-time", desc: "Leading a team of logistics professionals in a fast-paced environment." },
+            { id: 2, title: "Site Engineer", location: "Abu Dhabi, UAE", category: "Engineering", exp: "2-5 Years", salary: "8k - 10k AED", type: "Contract", desc: "Overseeing civil works and ensuring safety compliance on mega-projects." },
+            { id: 3, title: "Nurse Practitioner", location: "Srinagar, India", category: "Healthcare", exp: "2-5 Years", salary: "Negotiable", type: "Full-time", desc: "Providing primary care and medical assistance in private healthcare sector." },
+            { id: 4, title: "Hospitality Manager", location: "Dubai, UAE", category: "Hospitality", exp: "5+ Years", salary: "15k - 18k AED", type: "Full-time", desc: "Managing guest experiences in a 5-star luxury hotel setting." },
+            { id: 5, title: "Safety Officer", location: "Riyadh, Saudi", category: "Construction", exp: "2-5 Years", salary: "6k - 8k SAR", type: "Full-time", desc: "Implementing health and safety protocols on urban construction sites." },
+            { id: 6, title: "Executive Assistant", location: "Dubai, UAE", category: "Management", exp: "Entry Level", salary: "5k - 7k AED", type: "Full-time", desc: "Supporting C-level executives with daily scheduling and administrative tasks." }
+        ];
+
+        const grid = document.getElementById('jobsGrid');
+        const emptyMsg = document.getElementById('empty-msg');
+
+        function renderJobs(data) {
+            grid.innerHTML = '<div id="empty-msg">No jobs found matching your criteria.</div>';
+            const msg = document.getElementById('empty-msg');
+            
+            if(data.length === 0) {
+                msg.style.display = 'block';
+                return;
+            }
+
+            data.forEach(job => {
+                const card = document.createElement('div');
+                card.className = 'job-card';
+                card.innerHTML = `
+                    <div>
+                        <span class="job-tag">${job.category}</span>
+                        <h3 class="job-title">${job.title}</h3>
+                        <div class="job-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
+                            <span><i class="fas fa-clock"></i> ${job.type}</span>
+                            <span><i class="fas fa-money-bill-wave"></i> ${job.salary}</span>
+                            <span><i class="fas fa-briefcase"></i> ${job.exp}</span>
+                        </div>
+                        <p class="job-desc">${job.desc}</p>
+                    </div>
+                    <button class="btn-apply" onclick="initApply('${job.title}')">Apply Now</button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterJobs() {
+            const title = document.getElementById('searchTitle').value.toLowerCase();
+            const loc = document.getElementById('filterLocation').value;
+            const cat = document.getElementById('filterCategory').value;
+            const exp = document.getElementById('filterExp').value;
+
+            const filtered = jobs.filter(job => {
+                return (job.title.toLowerCase().includes(title)) &&
+                       (loc === "" || job.location === loc) &&
+                       (cat === "" || job.category === cat) &&
+                       (exp === "" || job.exp === exp);
+            });
+
+            renderJobs(filtered);
+        }
+
+        function initApply(jobTitle) {
+            const form = document.getElementById('applicationForm');
+            const targetInput = document.getElementById('targetJob');
+            const wrapper = document.getElementById('formWrapper');
+            
+            targetInput.value = jobTitle;
+            form.scrollIntoView({ behavior: 'smooth' });
+            
+            wrapper.classList.add('highlight-form');
+            setTimeout(() => wrapper.classList.remove('highlight-form'), 3000);
+        }
+
+        // File handle
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : "Select PDF file";
+            document.getElementById('fileName').textContent = fileName;
+        });
+
+        // EmailJS Submission
+        document.getElementById('job-apply-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const alert = document.getElementById('success-alert');
+            
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            emailjs.sendForm('service_60nhmyh', 'template_0i37td7', this)
+                .then(() => {
+                    alert.style.display = 'block';
+                    this.reset();
+                    document.getElementById('fileName').textContent = "Select PDF file";
+                    setTimeout(() => alert.style.display = 'none', 5000);
+                }, (err) => {
+                    alert("Submission failed. Please try again.");
+                })
+                .finally(() => {
+                    btn.innerText = "Send Application";
+                    btn.disabled = false;
+                });
+        });
+
+        // Initial Load
+        renderJobs(jobs);
     </script>
 </body>
 </html>
