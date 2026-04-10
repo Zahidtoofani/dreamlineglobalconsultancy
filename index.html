@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dream Line Global Consultancy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="navigate('home')">
+      <div class="logo-mark"><i class="fas fa-globe"></i></div>
+      <div class="logo-text">
+        <span class="logo-main">Dream Line</span>
+        <span class="logo-sub">Global Consultancy</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#" onclick="navigate('home')">Home</a></li>
+      <li><a href="#" onclick="navigate('jobs')">Jobs</a></li>
+      <li><a href="#" onclick="navigate('about')">About</a></li>
+      <li><a href="#" onclick="navigate('services')">Services</a></li>
+      <li><a href="#" onclick="navigate('contact')">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-glass" onclick="navigate('login')" id="nav-login-btn">Login</button>
+      <button class="btn-gold" onclick="navigate('register')" id="nav-register-btn">Register</button>
+      <div class="user-menu" id="user-menu" style="display:none">
+        <button class="user-avatar-btn" onclick="toggleUserMenu()">
+          <i class="fas fa-user-circle"></i>
+          <span id="nav-user-name">User</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="user-dropdown" id="user-dropdown">
+          <a href="#" onclick="navigate('dashboard')"><i class="fas fa-th-large"></i> Dashboard</a>
+          <a href="#" onclick="navigate('profile')"><i class="fas fa-user"></i> Profile</a>
+          <a href="#" class="logout-link" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#" onclick="navigate('home');closeMobile()">Home</a>
+    <a href="#" onclick="navigate('jobs');closeMobile()">Jobs</a>
+    <a href="#" onclick="navigate('about');closeMobile()">About</a>
+    <a href="#" onclick="navigate('services');closeMobile()">Services</a>
+    <a href="#" onclick="navigate('contact');closeMobile()">Contact</a>
+    <a href="#" onclick="navigate('login');closeMobile()">Login</a>
+    <a href="#" onclick="navigate('register');closeMobile()">Register</a>
+  </div>
+</nav>
+
+<!-- APP CONTAINER -->
+<div id="app">
+
+<!-- ══════════════════════════════════════════════════════
+     VIEW: HOME
+══════════════════════════════════════════════════════ -->
+<div id="view-home" class="view">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-star"></i> Trusted by 500+ Companies Across UAE & India</div>
+        <h1 class="hero-title">Your Career,<br/><em>Reimagined.</em></h1>
+        <p class="hero-sub">Dream Line Global Consultancy bridges exceptional talent with elite opportunities across the UAE, GCC, and India. Founded by Dr. Hussain — a vision built on precision, integrity and results.</p>
+        <div class="hero-btns">
+          <button class="btn-gold-lg" onclick="navigate('jobs')"><i class="fas fa-search"></i> Browse Jobs</button>
+          <button class="btn-glass-lg" onclick="navigate('register')"><i class="fas fa-rocket"></i> Get Started</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat"><span class="hstat-n">2,400+</span><span class="hstat-l">Placements</span></div>
+          <div class="hstat-div"></div>
+          <div class="hstat"><span class="hstat-n">500+</span><span class="hstat-l">Employers</span></div>
+          <div class="hstat-div"></div>
+          <div class="hstat"><span class="hstat-n">12 Yrs</span><span class="hstat-l">Experience</span></div>
+          <div class="hstat-div"></div>
+          <div class="hstat"><span class="hstat-n">UAE + IN</span><span class="hstat-l">Markets</span></div>
+        </div>
+      </div>
+      <div class="hero-cards">
+        <div class="hero-floating-card hfc-1">
+          <div class="hfc-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="hfc-info"><strong>Senior Accountant</strong><span>DIFC, Dubai · AED 20K</span></div>
+          <span class="hfc-badge">New</span>
+        </div>
+        <div class="hero-floating-card hfc-2">
+          <div class="hfc-icon"><i class="fas fa-code"></i></div>
+          <div class="hfc-info"><strong>Full Stack Developer</strong><span>Abu Dhabi · AED 18K</span></div>
+          <span class="hfc-badge">Hot</span>
+        </div>
+        <div class="hero-floating-card hfc-3">
+          <div class="hfc-icon"><i class="fas fa-user-md"></i></div>
+          <div class="hfc-info"><strong>Nurse Specialist</strong><span>Sharjah · AED 14K</span></div>
+          <span class="hfc-badge">Urgent</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK SEARCH -->
+  <section class="quick-search-sec">
+    <div class="qs-inner">
+      <div class="qs-box glass-card">
+        <input type="text" id="qs-keyword" placeholder="Job title, skill or keyword..." class="qs-input"/>
+        <select id="qs-location" class="qs-select">
+          <option value="">All Locations</option>
+          <option>Dubai</option><option>Abu Dhabi</option><option>Sharjah</option>
+          <option>Ajman</option><option>Srinagar</option><option>Remote</option>
+        </select>
+        <select id="qs-category" class="qs-select">
+          <option value="">All Categories</option>
+          <option>Finance</option><option>Technology</option><option>Healthcare</option>
+          <option>Engineering</option><option>Sales</option><option>HR</option>
+        </select>
+        <button class="btn-gold" onclick="quickSearch()"><i class="fas fa-search"></i> Search</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED JOBS PREVIEW -->
+  <section class="section-dark">
+    <div class="section-inner">
+      <div class="sec-head">
+        <div class="sec-label"><i class="fas fa-fire"></i> Featured Jobs</div>
+        <h2 class="sec-title">Latest Opportunities</h2>
+        <p class="sec-sub">Hand-picked roles from verified UAE and India employers.</p>
+      </div>
+      <div class="jobs-grid-preview" id="home-jobs-grid"></div>
+      <div style="text-align:center;margin-top:40px;">
+        <button class="btn-gold-lg" onclick="navigate('jobs')">View All Jobs <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section-darker">
+    <div class="section-inner">
+      <div class="sec-head">
+        <div class="sec-label"><i class="fas fa-award"></i> Why Choose Us</div>
+        <h2 class="sec-title">The Dream Line Advantage</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feat-card glass-card reveal">
+          <div class="feat-icon"><i class="fas fa-bolt"></i></div>
+          <h3>14-Day Placement</h3>
+          <p>Average time from application to offer letter — faster than any competitor in the UAE market.</p>
+        </div>
+        <div class="feat-card glass-card reveal">
+          <div class="feat-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Verified Employers</h3>
+          <p>Every employer on our platform is verified, licensed and compliant with UAE Labour Law.</p>
+        </div>
+        <div class="feat-card glass-card reveal">
+          <div class="feat-icon"><i class="fas fa-globe-asia"></i></div>
+          <h3>Dual Market Access</h3>
+          <p>Offices in Abu Dhabi and Srinagar — connecting Indian talent to UAE opportunities seamlessly.</p>
+        </div>
+        <div class="feat-card glass-card reveal">
+          <div class="feat-icon"><i class="fas fa-undo"></i></div>
+          <h3>90-Day Guarantee</h3>
+          <p>Free replacement within 90 days if a placement doesn't work out. Zero risk for employers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section-dark">
+    <div class="section-inner">
+      <div class="sec-head">
+        <div class="sec-label"><i class="fas fa-quote-left"></i> Testimonials</div>
+        <h2 class="sec-title">What Our Clients Say</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card glass-card reveal">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"Dream Line placed me as Finance Manager in a DIFC firm within 3 weeks. Dr. Hussain's team genuinely understood my career goals."</p>
+          <div class="testi-author"><div class="testi-av">AK</div><div><strong>Ahmed Al-Khalidi</strong><span>Finance Manager, DIFC Dubai</span></div></div>
+        </div>
+        <div class="testi-card glass-card reveal">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"As HR Director, I've used many agencies. Dream Line's shortlists are tight and pre-screened — they saved us weeks of work."</p>
+          <div class="testi-author"><div class="testi-av">SP</div><div><strong>Sarah Petrov</strong><span>HR Director, Abu Dhabi</span></div></div>
+        </div>
+        <div class="testi-card glass-card reveal">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"I relocated from Srinagar and found a great IT role in Abu Dhabi through Dream Line. The process was smooth and professional."</p>
+          <div class="testi-author"><div class="testi-av">RM</div><div><strong>Rahul Mehta</strong><span>IT Manager, Abu Dhabi</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     VIEW: JOBS
+══════════════════════════════════════════════════════ -->
+<div id="view-jobs" class="view" style="display:none">
+  <div class="page-hero">
+    <h1>Job Listings</h1>
+    <p>Find your next opportunity across UAE and India</p>
+  </div>
+  <div class="section-inner" style="padding-top:40px;">
+    <div class="jobs-filter-bar glass-card">
+      <input type="text" id="job-search" placeholder="Search jobs..." class="filter-input" oninput="filterJobs()"/>
+      <select id="job-location-filter" class="filter-select" onchange="filterJobs()">
+        <option value="">All Locations</option>
+        <option>Dubai</option><option>Abu Dhabi</option><option>Sharjah</option>
+        <option>Ajman</option><option>Srinagar</option><option>Remote</option>
+      </select>
+      <select id="job-cat-filter" class="filter-select" onchange="filterJobs()">
+        <option value="">All Categories</option>
+        <option>Finance</option><option>Technology</option><option>Healthcare</option>
+        <option>Engineering</option><option>Sales</option><option>HR</option>
+      </select>
+      <select id="job-type-filter" class="filter-select" onchange="filterJobs()">
+        <option value="">All Types</option>
+        <option>Full-time</option><option>Part-time</option><option>Contract</option><option>Remote</option>
+      </select>
+    </div>
+    <div class="jobs-count" id="jobs-count"></div>
+    <div class="jobs-grid" id="jobs-grid"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     VIEW: ABOUT
+══════════════════════════════════════════════════════ -->
+<div id="view-about" class="view" style="display:none">
+  <div class="page-hero"><h1>About Us</h1><p>The Dream Line story</p></div>
+  <div class="section-inner" style="padding-top:60px;">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="sec-label"><i class="fas fa-building"></i> Our Story</div>
+        <h2 class="sec-title" style="font-size:32px;">Dream Line Global Consultancy</h2>
+        <p style="color:var(--text-muted);line-height:1.8;margin-bottom:20px;">Founded by <strong style="color:var(--gold);">Dr. Hussain</strong>, Dream Line Global Consultancy was established with a singular vision — to create a bridge between exceptional talent in India and elite employment opportunities across the UAE and GCC region.</p>
+        <p style="color:var(--text-muted);line-height:1.8;margin-bottom:32px;">With offices in Abu Dhabi (Mazyad Mall, Tower 2, Office 626) and Srinagar (Khanyar), we operate at the intersection of two dynamic markets — bringing precision, integrity and results to every placement.</p>
+        <div class="about-stats-row">
+          <div class="astat glass-card"><span class="astat-n">12+</span><span class="astat-l">Years</span></div>
+          <div class="astat glass-card"><span class="astat-n">2,400+</span><span class="astat-l">Placed</span></div>
+          <div class="astat glass-card"><span class="astat-n">500+</span><span class="astat-l">Employers</span></div>
+        </div>
+      </div>
+      <div class="about-cards reveal">
+        <div class="glass-card" style="padding:28px;margin-bottom:20px;">
+          <h4 style="color:var(--gold);margin-bottom:10px;"><i class="fas fa-bullseye"></i> Our Mission</h4>
+          <p style="color:var(--text-muted);font-size:14px;line-height:1.7;">To deliver precise, ethical, and efficient recruitment that creates lasting value for both candidates and employers across UAE and India.</p>
+        </div>
+        <div class="glass-card" style="padding:28px;margin-bottom:20px;">
+          <h4 style="color:var(--gold);margin-bottom:10px;"><i class="fas fa-eye"></i> Our Vision</h4>
+          <p style="color:var(--text-muted);font-size:14px;line-height:1.7;">To be the most trusted name in UAE-India recruitment — known for speed, quality and uncompromising integrity in every engagement.</p>
+        </div>
+        <div class="glass-card" style="padding:28px;">
+          <h4 style="color:var(--gold);margin-bottom:12px;"><i class="fas fa-check-circle"></i> Why We Stand Out</h4>
+          <ul style="color:var(--text-muted);font-size:14px;line-height:2;padding-left:16px;">
+            <li>UAE Labour Law & MOHRE compliant</li>
+            <li>Free for candidates — always</li>
+            <li>Dual-market network (UAE + India)</li>
+            <li>90-day placement guarantee</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     VIEW: SERVICES
+══════════════════════════════════════════════════════ -->
+<div id="view-services" class="view" style="display:none">
+  <div class="page-hero"><h1>Our Services</h1><p>End-to-end recruitment solutions</p></div>
+  <div class="section-inner" style="padding-top:60px;">
+    <div class="services-tabs-bar">
+      <button class="stab active" onclick="filterServices('all',this)">All</button>
+      <button class="stab" onclick="filterServices('candidate',this)">For Candidates</button>
+      <button class="stab" onclick="filterServices('employer',this)">For Employers</button>
+    </div>
+    <div class="services-grid" id="services-grid">
+      <div class="svc-card glass-card reveal" data-cat="candidate">
+        <div class="svc-icon"><i class="fas fa-briefcase"></i></div>
+        <h3>Job Placement</h3>
+        <p>Matched placement across UAE and GCC sectors — finance, tech, healthcare, engineering and more.</p>
+      </div>
+      <div class="svc-card glass-card reveal" data-cat="candidate">
+        <div class="svc-icon"><i class="fas fa-file-alt"></i></div>
+        <h3>CV & Resume Support</h3>
+        <p>ATS-optimised CVs tailored to UAE and GCC market expectations. Increase your callback rate.</p>
+      </div>
+      <div class="svc-card glass-card reveal" data-cat="candidate">
+        <div class="svc-icon"><i class="fas fa-comments"></i></div>
+        <h3>Interview Coaching</h3>
+        <p>Mock interviews, competency-based coaching and live feedback to sharpen performance.</p>
+      </div>
+      <div class="svc-card glass-card reveal" data-cat="candidate">
+        <div class="svc-icon"><i class="fas fa-passport"></i></div>
+        <h3>Visa Guidance</h3>
+        <p>End-to-end UAE employment visa support and MOHRE documentation assistance.</p>
+      </div>
+      <div class="svc-card glass-card reveal" data-cat="employer">
+        <div class="svc-icon"><i class="fas fa-search"></i></div>
+        <h3>Staff Recruitment</h3>
+        <p>Full-cycle recruitment from job brief to onboarding — sourcing, screening, offer management.</p>
+      </div>
+      <div class="svc-card glass-card reveal" data-cat="employer">
+        <div class="svc-icon"><i class="fas fa-users"></i></div>
+        <h3>Bulk Hiring</h3>
+        <p>Rapid large-scale talent acquisition for expansion projects and new office launches across UAE.</p>
+      </div>
+      <div class="svc-card glass-card reveal" data-cat="employer">
+        <div class="svc-icon"><i class="fas fa-chart-bar"></i></div>
+        <h3>HR Consulting</h3>
+        <p>Salary benchmarking, workforce planning and UAE Labour Law compliance advisory.</p>
+      </div>
+      <div class="svc-card glass-card reveal" data-cat="employer">
+        <div class="svc-icon"><i class="fas fa-handshake"></i></div>
+        <h3>Executive Search</h3>
+        <p>Confidential C-suite and senior management search across UAE and GCC markets.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     VIEW: CONTACT
+══════════════════════════════════════════════════════ -->
+<div id="view-contact" class="view" style="display:none">
+  <div class="page-hero"><h1>Contact Us</h1><p>We're available Saturday to Thursday, 9am–6pm UAE</p></div>
+  <div class="section-inner" style="padding-top:60px;">
+    <div class="contact-grid">
+      <div class="contact-info-col reveal">
+        <div class="ci-card glass-card"><div class="ci-icon"><i class="fas fa-building"></i></div><div><h4>Abu Dhabi Office</h4><p>Mazyad Mall, Tower 2, Office 626<br/>Abu Dhabi, UAE</p></div></div>
+        <div class="ci-card glass-card"><div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Srinagar Office</h4><p>Khanyar, Srinagar<br/>Jammu & Kashmir, India</p></div></div>
+        <div class="ci-card glass-card"><div class="ci-icon"><i class="fas fa-phone"></i></div><div><h4>Phone</h4><p>UAE: +971 55 653 3417<br/>India: +91 95961 15725</p></div></div>
+        <div class="ci-card glass-card"><div class="ci-icon"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><p>info@dreamlineglobal.ae<br/>careers@dreamlineglobal.ae</p></div></div>
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.4!2d54.37!3d24.41!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDI0JzM2LjAiTiA1NMKwMjInMTIuMCJF!5e0!3m2!1sen!2sae!4v1620000000000!5m2!1sen!2sae" width="100%" height="220" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="contact-form-col reveal">
+        <div class="glass-card" style="padding:40px;">
+          <h3 style="color:var(--gold);font-size:22px;margin-bottom:6px;">Send a Message</h3>
+          <p style="color:var(--text-muted);font-size:14px;margin-bottom:28px;">We'll reply within one business day.</p>
+          <form id="contact-form" onsubmit="submitContact(event)">
+            <div class="form-row">
+              <div class="form-group"><label>Full Name *</label><input type="text" id="ct-name" required placeholder="Your name"/></div>
+              <div class="form-group"><label>Email *</label><input type="email" id="ct-email" required placeholder="your@email.com"/></div>
+            </div>
+            <div class="form-group"><label>Subject *</label><input type="text" id="ct-subject" required placeholder="How can we help?"/></div>
+            <div class="form-group"><label>Message *</label><textarea id="ct-message" required rows="5" placeholder="Your message..."></textarea></div>
+            <button type="submit" class="btn-gold-full"><i class="fas fa-paper-plane"></i> Send Message</button>
+          </form>
+          <div class="form-success" id="contact-success" style="display:none">
+            <i class="fas fa-check-circle"></i>
+            <h4>Message Sent!</h4>
+            <p>We'll reply within one business day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     VIEW: LOGIN
+══════════════════════════════════════════════════════ -->
+<div id="view-login" class="view" style="display:none">
+  <div class="auth-wrap">
+    <div class="auth-card glass-card">
+      <div class="auth-logo"><i class="fas fa-globe"></i><span>Dream Line</span></div>
+      <h2>Welcome Back</h2>
+      <p class="auth-sub">Sign in to your account</p>
+      <div id="login-error" class="form-error" style="display:none"></div>
+      <form onsubmit="doLogin(event)">
+        <div class="form-group"><label>Email</label><input type="email" id="login-email" required placeholder="your@email.com"/></div>
+        <div class="form-group"><label>Password</label>
+          <div class="input-eye">
+            <input type="password" id="login-pass" required placeholder="Password"/>
+            <button type="button" onclick="togglePass('login-pass',this)"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+        <button type="submit" class="btn-gold-full">Sign In <i class="fas fa-arrow-right"></i></button>
+      </form>
+      <div class="auth-demo-logins">
+        <p>Demo accounts:</p>
+        <button onclick="fillLogin('admin@dreamline.ae','admin123')">Admin</button>
+        <button onclick="fillLogin('employer@demo.com','emp123')">Employer</button>
+        <button onclick="fillLogin('candidate@demo.com','cand123')">Candidate</button>
+      </div>
+      <p class="auth-switch">Don't have an account? <a href="#" onclick="navigate('register')">Register</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     VIEW: REGISTER
+══════════════════════════════════════════════════════ -->
+<div id="view-register" class="view" style="display:none">
+  <div class="auth-wrap">
+    <div class="auth-card glass-card" style="max-width:520px;">
+      <div class="auth-logo"><i class="fas fa-globe"></i><span>Dream Line</span></div>
+      <h2>Create Account</h2>
+      <p class="auth-sub">Join Dream Line Global Consultancy</p>
+      <div id="register-error" class="form-error" style="display:none"></div>
+      <form onsubmit="doRegister(event)">
+        <div class="form-row">
+          <div class="form-group"><label>Full Name *</label><input type="text" id="reg-name" required placeholder="Full name"/></div>
+          <div class="form-group"><label>Email *</label><input type="email" id="reg-email" required placeholder="your@email.com"/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone *</label><input type="tel" id="reg-phone" required placeholder="+971 or +91"/></div>
+          <div class="form-group"><label>Account Type *</label>
+            <select id="reg-role" required>
+              <option value="">Select type</option>
+              <option value="candidate">Job Seeker</option>
+              <option value="employer">Employer / Company</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Password *</label>
+            <div class="input-eye"><input type="password" id="reg-pass" required placeholder="Min 6 characters"/><button type="button" onclick="togglePass('reg-pass',this)"><i class="fas fa-eye"></i></button></div>
+          </div>
+          <div class="form-group"><label>Confirm Password *</label>
+            <div class="input-eye"><input type="password" id="reg-pass2" required placeholder="Repeat password"/><button type="button" onclick="togglePass('reg-pass2',this)"><i class="fas fa-eye"></i></button></div>
+          </div>
+        </div>
+        <button type="submit" class="btn-gold-full">Create Account <i class="fas fa-user-plus"></i></button>
+      </form>
+      <p class="auth-switch">Already registered? <a href="#" onclick="navigate('login')">Sign In</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     VIEW: DASHBOARD (role-based)
+══════════════════════════════════════════════════════ -->
+<div id="view-dashboard" class="view" style="display:none">
+  <div id="dashboard-candidate" style="display:none">
+    <div class="dash-wrap">
+      <div class="dash-sidebar glass-card">
+        <div class="dash-user-info">
+          <div class="dash-avatar"><i class="fas fa-user"></i></div>
+          <div class="dash-user-name" id="dash-cand-name">Candidate</div>
+          <div class="dash-user-role">Job Seeker</div>
+        </div>
+        <nav class="dash-nav">
+          <a class="dash-nav-item active" onclick="showDashTab('cand-overview',this)"><i class="fas fa-th-large"></i> Overview</a>
+          <a class="dash-nav-item" onclick="showDashTab('cand-profile',this)"><i class="fas fa-user-edit"></i> My Profile</a>
+          <a class="dash-nav-item" onclick="showDashTab('cand-applications',this)"><i class="fas fa-file-alt"></i> Applications</a>
+          <a class="dash-nav-item" onclick="navigate('jobs')"><i class="fas fa-search"></i> Browse Jobs</a>
+          <a class="dash-nav-item" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+      </div>
+      <div class="dash-content">
+        <!-- Candidate Overview -->
+        <div id="cand-overview" class="dash-tab active">
+          <h2 class="dash-title">Dashboard Overview</h2>
+          <div class="dash-stats-row" id="cand-stats-row"></div>
+          <h3 class="dash-sub-title">Recent Applications</h3>
+          <div id="cand-recent-apps"></div>
+        </div>
+        <!-- Candidate Profile -->
+        <div id="cand-profile" class="dash-tab" style="display:none">
+          <h2 class="dash-title">My Profile</h2>
+          <div class="glass-card" style="padding:32px;">
+            <form onsubmit="saveCandProfile(event)">
+              <div class="form-row">
+                <div class="form-group"><label>Full Name</label><input type="text" id="cp-name" placeholder="Full name"/></div>
+                <div class="form-group"><label>Email</label><input type="email" id="cp-email" placeholder="Email" readonly style="opacity:0.6"/></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Phone</label><input type="tel" id="cp-phone" placeholder="Phone number"/></div>
+                <div class="form-group"><label>Nationality</label><input type="text" id="cp-nationality" placeholder="e.g. Indian, Pakistani"/></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Current Location</label><input type="text" id="cp-location" placeholder="City, Country"/></div>
+                <div class="form-group"><label>Experience</label>
+                  <select id="cp-exp">
+                    <option>0–1 year</option><option>1–3 years</option><option>3–5 years</option><option>5–10 years</option><option>10+ years</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group"><label>Skills (comma separated)</label><input type="text" id="cp-skills" placeholder="e.g. Accounting, SAP, Excel"/></div>
+              <div class="form-group"><label>Professional Summary</label><textarea id="cp-summary" rows="4" placeholder="Brief professional bio..."></textarea></div>
+              <div class="form-group">
+                <label>Upload CV (PDF only)</label>
+                <div class="file-upload-wrap" id="cv-upload-wrap">
+                  <input type="file" id="cp-cv" accept=".pdf" onchange="handleCVUpload(this)"/>
+                  <div class="file-upload-ui"><i class="fas fa-cloud-upload-alt"></i><span>Drop PDF here or click to browse</span><small>PDF files only, max 5MB</small></div>
+                </div>
+                <div id="cv-preview" class="cv-preview" style="display:none"></div>
+              </div>
+              <button type="submit" class="btn-gold">Save Profile <i class="fas fa-save"></i></button>
+            </form>
+          </div>
+        </div>
+        <!-- Candidate Applications -->
+        <div id="cand-applications" class="dash-tab" style="display:none">
+          <h2 class="dash-title">My Applications</h2>
+          <div id="cand-apps-table"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dashboard-employer" style="display:none">
+    <div class="dash-wrap">
+      <div class="dash-sidebar glass-card">
+        <div class="dash-user-info">
+          <div class="dash-avatar"><i class="fas fa-building"></i></div>
+          <div class="dash-user-name" id="dash-emp-name">Employer</div>
+          <div class="dash-user-role">Employer</div>
+        </div>
+        <nav class="dash-nav">
+          <a class="dash-nav-item active" onclick="showDashTab('emp-overview',this)"><i class="fas fa-th-large"></i> Overview</a>
+          <a class="dash-nav-item" onclick="showDashTab('emp-post',this)"><i class="fas fa-plus-circle"></i> Post Requirement</a>
+          <a class="dash-nav-item" onclick="showDashTab('emp-applicants',this)"><i class="fas fa-users"></i> View Applicants</a>
+          <a class="dash-nav-item" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+      </div>
+      <div class="dash-content">
+        <div id="emp-overview" class="dash-tab active">
+          <h2 class="dash-title">Employer Dashboard</h2>
+          <div class="dash-stats-row" id="emp-stats-row"></div>
+          <h3 class="dash-sub-title">My Posted Requirements</h3>
+          <div id="emp-posted-list"></div>
+        </div>
+        <div id="emp-post" class="dash-tab" style="display:none">
+          <h2 class="dash-title">Post Staff Requirement</h2>
+          <div class="glass-card" style="padding:32px;">
+            <form onsubmit="submitStaffReq(event)">
+              <div class="form-row">
+                <div class="form-group"><label>Company Name *</label><input type="text" id="ep-company" required placeholder="Company name"/></div>
+                <div class="form-group"><label>Job Title *</label><input type="text" id="ep-title" required placeholder="e.g. Senior Accountant"/></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Category *</label>
+                  <select id="ep-cat" required>
+                    <option value="">Select</option>
+                    <option>Finance</option><option>Technology</option><option>Healthcare</option>
+                    <option>Engineering</option><option>Sales</option><option>HR</option><option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group"><label>Location *</label>
+                  <select id="ep-location" required>
+                    <option value="">Select</option>
+                    <option>Dubai</option><option>Abu Dhabi</option><option>Sharjah</option>
+                    <option>Ajman</option><option>Remote</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Employment Type</label>
+                  <select id="ep-type">
+                    <option>Full-time</option><option>Part-time</option><option>Contract</option><option>Remote</option>
+                  </select>
+                </div>
+                <div class="form-group"><label>Salary Range (AED/mo)</label><input type="text" id="ep-salary" placeholder="e.g. 15,000 – 20,000"/></div>
+              </div>
+              <div class="form-group"><label>Number of Positions *</label>
+                <select id="ep-count" required>
+                  <option>1</option><option>2–5</option><option>6–10</option><option>10+</option>
+                </select>
+              </div>
+              <div class="form-group"><label>Job Description *</label><textarea id="ep-desc" rows="5" required placeholder="Full job description, requirements, responsibilities..."></textarea></div>
+              <div class="form-group"><label>Required Experience</label>
+                <select id="ep-exp">
+                  <option>0–1 year</option><option>1–3 years</option><option>3–5 years</option><option>5+ years</option>
+                </select>
+              </div>
+              <button type="submit" class="btn-gold">Submit Requirement <i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+        <div id="emp-applicants" class="dash-tab" style="display:none">
+          <h2 class="dash-title">Applicants for My Jobs</h2>
+          <div id="emp-applicants-table"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dashboard-admin" style="display:none">
+    <div class="dash-wrap">
+      <div class="dash-sidebar glass-card">
+        <div class="dash-user-info">
+          <div class="dash-avatar" style="background:var(--gold);color:var(--navy)"><i class="fas fa-shield-alt"></i></div>
+          <div class="dash-user-name">Admin</div>
+          <div class="dash-user-role" style="color:var(--gold)">Administrator</div>
+        </div>
+        <nav class="dash-nav">
+          <a class="dash-nav-item active" onclick="showDashTab('admin-overview',this)"><i class="fas fa-chart-line"></i> Analytics</a>
+          <a class="dash-nav-item" onclick="showDashTab('admin-jobs',this)"><i class="fas fa-briefcase"></i> Manage Jobs</a>
+          <a class="dash-nav-item" onclick="showDashTab('admin-users',this)"><i class="fas fa-users"></i> Users</a>
+          <a class="dash-nav-item" onclick="showDashTab('admin-apps',this)"><i class="fas fa-file-alt"></i> Applications</a>
+          <a class="dash-nav-item" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+      </div>
+      <div class="dash-content">
+        <div id="admin-overview" class="dash-tab active">
+          <h2 class="dash-title">Site Analytics</h2>
+          <div class="dash-stats-row" id="admin-stats-row"></div>
+          <h3 class="dash-sub-title">Recent Activity</h3>
+          <div id="admin-recent"></div>
+        </div>
+        <div id="admin-jobs" class="dash-tab" style="display:none">
+          <h2 class="dash-title">Manage Job Listings</h2>
+          <div class="admin-toolbar">
+            <button class="btn-gold" onclick="showDashTab('admin-add-job',document.querySelector('.dash-nav-item'))"><i class="fas fa-plus"></i> Add Job</button>
+          </div>
+          <div id="admin-jobs-table"></div>
+        </div>
+        <div id="admin-add-job" class="dash-tab" style="display:none">
+          <h2 class="dash-title">Add New Job</h2>
+          <div class="glass-card" style="padding:32px;">
+            <form onsubmit="adminAddJob(event)">
+              <div class="form-row">
+                <div class="form-group"><label>Job Title *</label><input type="text" id="aj-title" required placeholder="e.g. Senior Accountant"/></div>
+                <div class="form-group"><label>Company *</label><input type="text" id="aj-company" required placeholder="Company name"/></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Category *</label>
+                  <select id="aj-cat" required>
+                    <option value="">Select</option>
+                    <option>Finance</option><option>Technology</option><option>Healthcare</option>
+                    <option>Engineering</option><option>Sales</option><option>HR</option>
+                  </select>
+                </div>
+                <div class="form-group"><label>Location *</label>
+                  <select id="aj-location" required>
+                    <option value="">Select</option>
+                    <option>Dubai</option><option>Abu Dhabi</option><option>Sharjah</option>
+                    <option>Ajman</option><option>Srinagar</option><option>Remote</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Type</label>
+                  <select id="aj-type">
+                    <option>Full-time</option><option>Part-time</option><option>Contract</option><option>Remote</option>
+                  </select>
+                </div>
+                <div class="form-group"><label>Salary</label><input type="text" id="aj-salary" placeholder="e.g. AED 15,000–20,000"/></div>
+              </div>
+              <div class="form-group"><label>Experience Required</label>
+                <select id="aj-exp">
+                  <option>0–1 year</option><option>1–3 years</option><option>3–5 years</option><option>5+ years</option>
+                </select>
+              </div>
+              <div class="form-group"><label>Description *</label><textarea id="aj-desc" rows="5" required placeholder="Full job description..."></textarea></div>
+              <div class="form-group"><label>Status</label>
+                <select id="aj-status">
+                  <option value="active">Active</option>
+                  <option value="pending">Pending Review</option>
+                </select>
+              </div>
+              <button type="submit" class="btn-gold">Post Job <i class="fas fa-check"></i></button>
+            </form>
+          </div>
+        </div>
+        <div id="admin-users" class="dash-tab" style="display:none">
+          <h2 class="dash-title">All Users</h2>
+          <div id="admin-users-table"></div>
+        </div>
+        <div id="admin-apps" class="dash-tab" style="display:none">
+          <h2 class="dash-title">All Applications</h2>
+          <div id="admin-apps-table"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     VIEW: PROFILE
+══════════════════════════════════════════════════════ -->
+<div id="view-profile" class="view" style="display:none">
+  <div class="page-hero"><h1>My Profile</h1><p>Manage your account</p></div>
+  <div class="section-inner" style="padding-top:40px;max-width:700px;">
+    <div class="glass-card" style="padding:40px;">
+      <p style="color:var(--text-muted);">Go to your <a href="#" onclick="navigate('dashboard')" style="color:var(--gold);">Dashboard</a> to manage your full profile.</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /app -->
+
+<!-- JOB APPLY MODAL -->
+<div class="modal-overlay" id="apply-modal">
+  <div class="modal-box glass-card">
+    <button class="modal-close" onclick="closeApplyModal()"><i class="fas fa-times"></i></button>
+    <h3 style="color:var(--gold);margin-bottom:4px;">Apply for Position</h3>
+    <p class="modal-job-label" id="modal-job-title" style="color:var(--text-muted);font-size:14px;margin-bottom:24px;"></p>
+    <form id="apply-form" onsubmit="submitApplication(event)">
+      <div class="form-row">
+        <div class="form-group"><label>Full Name *</label><input type="text" id="ap-name" required placeholder="Full name"/></div>
+        <div class="form-group"><label>Email *</label><input type="email" id="ap-email" required placeholder="your@email.com"/></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Phone *</label><input type="tel" id="ap-phone" required placeholder="+971 or +91"/></div>
+        <div class="form-group"><label>Experience</label>
+          <select id="ap-exp"><option>0–1 year</option><option>1–3 years</option><option>3–5 years</option><option>5+ years</option></select>
+        </div>
+      </div>
+      <div class="form-group"><label>Skills</label><input type="text" id="ap-skills" placeholder="Relevant skills"/></div>
+      <div class="form-group">
+        <label>Upload CV (PDF only) *</label>
+        <div class="file-upload-wrap"><input type="file" id="ap-cv" accept=".pdf" required onchange="validatePDF(this,'ap-cv-err')"/><div class="file-upload-ui"><i class="fas fa-file-pdf"></i><span>PDF files only</span></div></div>
+        <div id="ap-cv-err" class="file-error" style="display:none;color:#f87171;font-size:12px;margin-top:4px;"></div>
+      </div>
+      <button type="submit" class="btn-gold-full"><i class="fas fa-paper-plane"></i> Submit Application</button>
+    </form>
+    <div class="form-success" id="apply-success" style="display:none">
+      <i class="fas fa-check-circle"></i>
+      <h4>Application Submitted!</h4>
+      <p>We'll review and contact you within 2 business days.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:16px;">
+          <div class="logo-mark"><i class="fas fa-globe"></i></div>
+          <div class="logo-text"><span class="logo-main">Dream Line</span><span class="logo-sub">Global Consultancy</span></div>
+        </div>
+        <p>UAE-India recruitment specialists since 2012. Connecting exceptional talent with elite opportunities across the GCC and beyond.</p>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#" onclick="navigate('home')">Home</a></li>
+          <li><a href="#" onclick="navigate('jobs')">Job Listings</a></li>
+          <li><a href="#" onclick="navigate('about')">About Us</a></li>
+          <li><a href="#" onclick="navigate('services')">Services</a></li>
+          <li><a href="#" onclick="navigate('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>For Candidates</h4>
+        <ul>
+          <li><a href="#" onclick="navigate('jobs')">Browse Jobs</a></li>
+          <li><a href="#" onclick="navigate('register')">Register</a></li>
+          <li><a href="#" onclick="navigate('login')">Candidate Login</a></li>
+          <li><a href="#" onclick="navigate('services')">CV Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fas fa-phone"></i> +971 55 653 3417</li>
+          <li><i class="fas fa-phone"></i> +91 95961 15725</li>
+          <li><i class="fas fa-map-marker-alt"></i> Mazyad Mall, Abu Dhabi</li>
+          <li><i class="fas fa-map-marker-alt"></i> Khanyar, Srinagar</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Dream Line Global Consultancy. Founded by Dr. Hussain. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+<script src="script.js"></script>
+</body>
+</html>
